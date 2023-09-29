@@ -1,6 +1,6 @@
 ---
 title: "Gov 50 Final Project"
-author: "Your Name Here"
+author: Keren Elmore
 description: "My final project"
 output:
   distill::distill_article:
@@ -11,4 +11,4 @@ output:
 
 ## Project thoughts
 
-I am interested in exploring data related to...
+I am interested in exploring data related to housing in a major city (such as New York), specifically disparities among public housing residents, renters, and home owners. Exploring this data might lead me writing about how housing status (public housing vs renting vs ownership) intersects with race, income, or political affiliation. I would also be interested in thinking about how family life (in terms of housing status) impacts education access and success in children. 
