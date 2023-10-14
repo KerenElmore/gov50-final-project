@@ -18,3 +18,9 @@ Some other thoughts include:
 - Exploring correlations between landownership (specifically in Black or indigenous communities) and climate change
 
 - Exploring companies that follow ESG (Environmental, social, and corporate governance) and the correlation to diversity optimization and environmental mitigation (climate change reduction). 
+
+## Project Proposal
+What is the relationship between political ideology and perspectives on political violence? In a time of heightened political tension and discourse, I want to explore how events of political violence (or the narratives formed around them) impact ideology and voting patterns. I hypothesize that those who have experience instances of political violence have generally more conservative views than those who have not. However, non-violent exposure contentious policy issues (such as abortion) fosters more liberal views. This is because typical while violence breeds thoughts of preventive action, non-violent political encounters breed feelings of advocacy and activism. A woman who chose to have an abortion will most likely have more pro-abortion views. My research will focus mostly on the "scenario_type" (measured on a scale from 1 to 12), "political party" (measured on a scale from 1 to 5), and "political ideology" (measured on a scale from 1 to 6) variables. These explanatory variables will be bridged with the outcome variable of "presvote20post". If a 'Pro abortion, no injuries' = 'Pro abortion' stance in "scenario_type" leads to voting for a Democrat presidential candidate, this would support my hypothesize while the adverse would not. 
+
+
+
