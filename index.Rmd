@@ -7,7 +7,72 @@ output:
     self_contained: false
 ---
 
+## Milestone 3: 1st Data Visualization
+```{r, echo = FALSE}
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+```
 
+```{r, include = FALSE}
+library(readr)
+political_violence_data <- read_csv("~/Downloads/dataverse_files (1)/PoliticalViolence_May21 Client.csv")
+```
+```{r, include = FALSE}
+political_violence <- political_violence_data |>
+    select(-c(starttime, endtime, parentyn_1, parentyn_2, parentyn_3, parentyn_98))
+political_violence
+```
+
+```{r, include = FALSE}
+political_violence <- political_violence |>
+  rename(moral_just = ucl_1_1, moral_strategy = ucl_1_2, terrorism = ucl_1_3)
+```
+```{r, include = FALSE}
+print(political_violence)
+```
+```{r, echo = FALSE}
+no_inj_morality <- political_violence |>
+  filter(ideo5 == 1:5, experiment_split == c(1, 3, 9, 11)) |>
+  mutate(
+    ideology = case_when(
+      ideo5 == 1 | ideo5 == 2 ~ "Liberal",
+      ideo5 == 3 ~ "Moderate",
+      ideo5 == 4 | ideo5 == 5 ~ "Conservative"
+  )) |>
+  mutate(
+    experiment_ideo_split = case_when(
+      experiment_split == 1 ~ "Pro abortion",
+      experiment_split == 3 ~ "Anti abortion",
+      experiment_split == 9 ~ "Pro immigration",
+      experiment_split == 11 ~ "Anti immigration")
+  ) |>
+  ggplot(mapping = aes(x = experiment_ideo_split, y = moral_just, fill = ideology)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c(Liberal = "steelblue1", Conservative = "indianred1", Moderate = "darkgoldenrod1")) +
+  labs(
+    x = "Political Violence Scenario Type (No Injuries)",
+    y = "Morally Justifiable?")
+
+no_inj_morality
+```
+The following data visualization between "experiment_split" and "moral_just" (relative to "ideo5") evaluates how conservative, liberal, and moderate leaning respondents view non-violence scenarios of political violence (regarding abortion and immigration) as morally justifiable. 
+
+1 = Strongly Agree
+
+2 = Agree
+
+3 = Somewhat Agree
+
+4 = Neutral
+
+5 = Somewhat Disagree
+
+6 = Disagree
+
+7 = Strongly Disagree
+
+-------
 
 ## Project thoughts
 
@@ -23,4 +88,7 @@ Some other thoughts include:
 What is the relationship between political ideology and perspectives on political violence? In a time of heightened political tension and discourse, I want to explore how events of political violence (or the narratives formed around them) impact ideology and voting patterns. I hypothesize that those who have experience instances of political violence have generally more conservative views than those who have not. However, non-violent exposure contentious policy issues (such as abortion) fosters more liberal views. This is because typical while violence breeds thoughts of preventive action, non-violent political encounters breed feelings of advocacy and activism. A woman who chose to have an abortion will most likely have more pro-abortion views. My research will focus mostly on the "scenario_type" (measured on a scale from 1 to 12), "political party" (measured on a scale from 1 to 5), and "political ideology" (measured on a scale from 1 to 6) variables. These explanatory variables will be bridged with the outcome variable of "presvote20post". If a 'Pro abortion, no injuries' = 'Pro abortion' stance in "scenario_type" leads to voting for a Democrat presidential candidate, this would support my hypothesize while the adverse would not. 
 
 
+```{r print-code, ref.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
+
+```
 
