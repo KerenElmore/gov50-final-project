@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1559,6 +1559,22 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>6 = Disagree</p>
 <p>7 = Strongly Disagree</p>
 <hr />
+<h2 id="milestone-4-1st-analysis">Milestone 4: 1st Analysis</h2>
+<h1 id="effect-of-ideology-on-moral-justifiability-regarding-abortion-immigration">Effect of Ideology on Moral Justifiability (Regarding Abortion &amp; Immigration)</h1>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<p>In the following visualization, I sought to examine whether ideology impacts how individuals view of political violent action as moral justifiable. I decided to narrow my scope to only include scenarios involving abortion or immigration services in order to get a more refined look at extremely controversial issues. The scenarios inquired about in this data are as follows:</p>
+<p>Experiment 1 (Anti-Abortion): A man was convicted of bombing an organization that advocates for increasing access to abortion. The attack caused no injuries.</p>
+<p>Experiment 2 (Anti-Abortion): A man was convicted of bombing an organization that advocates for increasing access to abortion. The attack caused multiple casualties.</p>
+<p>Experiment 3 (Pro-Abortion): A man was convicted of bombing an organization that advocates for restricting access to abortion. The attack caused no injuries.</p>
+<p>Experiment 4 (Pro-Abortion): A man was convicted of bombing an organization that advocates for restricting access to abortion. The attack caused multiple casualties.</p>
+<p>Experiment 9 (Anti-Immigration): A man was convicted of bombing an organization that advocates for less restrictive immigration laws. The attack caused no injuries.</p>
+<p>Experiment 10 (Anti-Immigration): A man was convicted of bombing an organization that advocates for less restrictive immigration laws. The attack caused multiple casualties.</p>
+<p>Experiment 11 (Pro-Immigration): A man was convicted of bombing an organization that advocates for more restrictive immigration laws. The attack caused no injuries.</p>
+<p>Experiment 10 (Pro-Immigration): A man was convicted of bombing an organization that advocates for more restrictive immigration laws. The attack caused multiple casualties.</p>
+<p>Based on the result of my boxplot, conservatives, liberals, and moderates tend to see an action as justifiable when it aligns with their policy views. Conservatives have more spread than liberals in their moral reactions to politically violent actions that align with their policy values, with their IQR beginning at Neutral (4). I also noticed how there are many more outliers for liberals reacting to “conservative-minded” acts for political violence, with most of the data concentrated at “Strongly Disagree”; this means that liberals predominately do not see these actions as morally justifiable. It is important to note that the median for all groups in scenarios appears to strongly disagree that actions of political violence are justifiable; only moderates and conservatives when thinking of a more “liberal-minded” action have a slightly higher median at 6 (“Disagree”). Through this visualization, I saw that while conservatives, moderates, and liberals averagely strongly disagree that political violence is morally justified, they tend to be more willing to justify actions that align with their political beliefs. For example, a conservative is more likely to justify a man bombing an organization that advocates for less immigration restriction than one that advocated for more.</p>
+<hr />
 <h2 id="project-thoughts">Project thoughts</h2>
 <p>I am interested in exploring data related to housing in a major city (such as New York), specifically disparities among public housing residents, renters, and home owners. Exploring this data might lead me writing about how housing status (public housing vs renting vs ownership) intersects with race, income, or political affiliation. I would also be interested in thinking about how housing status for families specifically impacts education access and success in children.</p>
 <p>Some other thoughts include:</p>
@@ -1603,7 +1619,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>    x <span class='op'>=</span> <span class='st'>"Political Violence Scenario Type (No Injuries)"</span>,</span>
 <span>    y <span class='op'>=</span> <span class='st'>"Morally Justifiable?"</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='va'>no_inj_morality</span></span></code></pre>
+<span><span class='va'>no_inj_morality</span></span>
+<span><span class='va'>ideo_terrorism</span> <span class='op'>&lt;-</span> <span class='va'>political_violence</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>ideo5</span> <span class='op'>==</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='va'>experiment_split</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span>,<span class='fl'>9</span>,<span class='fl'>10</span>,<span class='fl'>11</span>,<span class='fl'>12</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>           <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>             conservative_action <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>experiment_split</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>9</span>,<span class='fl'>10</span><span class='op'>)</span>,</span>
+<span>                     <span class='st'>"TRUE"</span>, <span class='st'>"FALSE"</span><span class='op'>)</span>,</span>
+<span>      ideology <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span></span>
+<span>      <span class='va'>ideo5</span> <span class='op'>==</span> <span class='fl'>1</span> <span class='op'>|</span> <span class='va'>ideo5</span> <span class='op'>==</span> <span class='fl'>2</span> <span class='op'>~</span> <span class='st'>"Liberal"</span>,</span>
+<span>      <span class='va'>ideo5</span> <span class='op'>==</span> <span class='fl'>3</span> <span class='op'>~</span> <span class='st'>"Moderate"</span>,</span>
+<span>      <span class='va'>ideo5</span> <span class='op'>==</span> <span class='fl'>4</span> <span class='op'>|</span> <span class='va'>ideo5</span> <span class='op'>==</span> <span class='fl'>5</span> <span class='op'>~</span> <span class='st'>"Conservative"</span></span>
+<span>             <span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>ideology</span>, <span class='va'>conservative_action</span><span class='op'>)</span> </span>
+<span></span>
+<span><span class='va'>ideo_terrorism_plot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>ideo_terrorism</span>,</span>
+<span>       mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>ideology</span>,</span>
+<span>                     y <span class='op'>=</span> <span class='va'>moral_just</span>,</span>
+<span>                     fill <span class='op'>=</span> <span class='va'>conservative_action</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_boxplot.html'>geom_boxplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>`FALSE` <span class='op'>=</span> <span class='st'>"steelblue1"</span>, `TRUE` <span class='op'>=</span> <span class='st'>"indianred1"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Ideology"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Morally Justifiability*"</span>,</span>
+<span>    title <span class='op'>=</span> <span class='st'>"Ideology and Moral Justifiability"</span>,</span>
+<span>    subtitle <span class='op'>=</span> <span class='st'>"Abortion and Immigration"</span>,</span>
+<span>    caption <span class='op'>=</span> <span class='st'>"*1 = Strongly Agree </span></span>
+<span><span class='st'>    2 = Agree</span></span>
+<span><span class='st'>    3 = Somewhat Agree</span></span>
+<span><span class='st'>    4 = Neutral</span></span>
+<span><span class='st'>    5 = Somewhat Disagree</span></span>
+<span><span class='st'>    6 = Disagree</span></span>
+<span><span class='st'>    7 = Strongly Disagree"</span>,</span>
+<span>    fill <span class='op'>=</span> <span class='st'>"Conservative Action?"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>ideo_terrorism_plot</span></span></code></pre>
 </div>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>

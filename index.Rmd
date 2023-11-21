@@ -74,6 +74,69 @@ The following data visualization between "experiment_split" and "moral_just" (re
 
 -------
 
+## Milestone 4: 1st Analysis
+# Effect of Ideology on Moral Justifiability (Regarding Abortion & Immigration)
+
+```{r, echo = FALSE}
+ideo_terrorism <- political_violence |>
+  filter(ideo5 == 1:5, experiment_split %in% c(1,2,3,4,9,10,11,12)) |>
+           mutate(
+             conservative_action = if_else(experiment_split %in% c(1,2,9,10),
+                     "TRUE", "FALSE"),
+      ideology = case_when(
+      ideo5 == 1 | ideo5 == 2 ~ "Liberal",
+      ideo5 == 3 ~ "Moderate",
+      ideo5 == 4 | ideo5 == 5 ~ "Conservative"
+             )) |>
+  group_by(ideology, conservative_action) 
+
+ideo_terrorism_plot <- ggplot(data = ideo_terrorism,
+       mapping = aes(x = ideology,
+                     y = moral_just,
+                     fill = conservative_action)) +
+  geom_boxplot() + scale_fill_manual(values = c(`FALSE` = "steelblue1", `TRUE` = "indianred1")) +
+   labs(
+    x = "Ideology",
+    y = "Morally Justifiability*",
+    title = "Ideology and Moral Justifiability",
+    subtitle = "Abortion and Immigration",
+    caption = "*1 = Strongly Agree 
+    2 = Agree
+    3 = Somewhat Agree
+    4 = Neutral
+    5 = Somewhat Disagree
+    6 = Disagree
+    7 = Strongly Disagree",
+    fill = "Conservative Action?")
+
+ideo_terrorism_plot
+```
+In the following visualization, I sought to examine whether ideology impacts how individuals view of political violent action as moral justifiable. I decided to narrow my scope to only include scenarios involving abortion or immigration services in order to get a more refined look at extremely controversial issues. The scenarios inquired about in this data are as follows:
+
+Experiment 1 (Anti-Abortion): A man was convicted of bombing an organization that advocates for increasing access to abortion. The attack caused no injuries.
+
+Experiment 2 (Anti-Abortion): A man was convicted of bombing an organization that advocates for increasing access to abortion. The attack caused multiple casualties.
+
+Experiment 3 (Pro-Abortion): A man was convicted of bombing an organization that advocates for restricting access to abortion. The attack caused no injuries.
+
+Experiment 4 (Pro-Abortion): A man was convicted of bombing an organization that advocates for restricting access to abortion. The attack caused multiple casualties.
+
+Experiment 9 (Anti-Immigration): A man was convicted of bombing an organization that advocates for less restrictive immigration laws. The attack caused no injuries.
+
+Experiment 10 (Anti-Immigration): A man was convicted of bombing an organization that advocates for less restrictive immigration laws. The attack caused multiple casualties.
+
+Experiment 11 (Pro-Immigration): A man was convicted of bombing an organization that advocates for more restrictive immigration laws. The attack caused no injuries.
+
+Experiment 10 (Pro-Immigration): A man was convicted of bombing an organization that advocates for more restrictive immigration laws. The attack caused multiple casualties.
+
+
+Based on the result of my boxplot, conservatives, liberals, and moderates tend to see an action as justifiable when it aligns with their policy views. Conservatives have more spread than liberals in their moral reactions to politically violent actions that align with their policy values, with their IQR beginning at Neutral (4). I also noticed how there are many more outliers for liberals reacting to "conservative-minded" acts for political violence, with most of the data concentrated at "Strongly Disagree"; this means that liberals predominately do not see these actions as morally justifiable. It is important to note that the median for all groups in scenarios appears to strongly disagree that actions of political violence are justifiable; only moderates and conservatives when thinking of a more "liberal-minded" action have a slightly higher median at 6 ("Disagree"). Through this visualization, I saw that while conservatives, moderates, and liberals averagely strongly disagree that political violence is morally justified, they tend to be more willing to justify actions that align with their political beliefs. For example, a conservative is more likely to justify a man bombing an organization that advocates for less immigration restriction than one that advocated for more. 
+
+
+
+
+-------
+
 ## Project thoughts
 
 I am interested in exploring data related to housing in a major city (such as New York), specifically disparities among public housing residents, renters, and home owners. Exploring this data might lead me writing about how housing status (public housing vs renting vs ownership) intersects with race, income, or political affiliation. I would also be interested in thinking about how housing status for families specifically impacts education access and success in children. 
