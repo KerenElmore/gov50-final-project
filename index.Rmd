@@ -7,7 +7,7 @@ output:
     self_contained: false
 ---
 
-## Milestone 3: 1st Data Visualization
+# Milestone 3: 1st Data Visualization
 ```{r, echo = FALSE}
 library(tidyverse)
 library(ggplot2)
@@ -74,8 +74,8 @@ The following data visualization between "experiment_split" and "moral_just" (re
 
 -------
 
-## Milestone 4: 1st Analysis
-# Effect of Ideology on Moral Justifiability (Regarding Abortion & Immigration)
+# Milestone 4: 1st Analysis
+## Effect of Ideology on Moral Justifiability (Regarding Abortion & Immigration)
 
 ```{r, echo = FALSE}
 ideo_terrorism <- political_violence |>
