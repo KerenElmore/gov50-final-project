@@ -1,0 +1,31 @@
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@200;300&display=swap');
+
+.title {
+  color: #FF6F80;
+}
+
+.author {
+  font-size: 15px;
+}
+
+.description {
+  text-align: center;
+}
+
+body {
+font-family: 'Kalnia', serif;;
+}
+
+h1 {
+   text-align: center;
+   color: #FF6F80;
+} 
+
+h2, h3, h4, h5, h6 {
+  color: #FF6F80;
+}
+
+</style>
